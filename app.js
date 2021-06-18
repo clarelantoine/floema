@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-console.log(process.env.PRISMIC_ENDPOINT)
+// console.log(process.env.PRISMIC_ENDPOINT)
 
 const errorHandlers = require('errorhandler')
 const express = require('express')
