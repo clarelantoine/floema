@@ -67,11 +67,9 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        include: dirApp,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
+          loader: 'babel-loader'
         }
       },
 
