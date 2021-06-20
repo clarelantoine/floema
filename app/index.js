@@ -4,13 +4,19 @@ import About from 'pages/About'
 import Collections from 'pages/Collections'
 import Detail from 'pages/Detail'
 import Home from 'pages/Home'
+import Preloader from 'components/Preloader'
 
 class App {
   constructor () {
+    this.createPreloader()
     this.createContent()
     this.createPages()
 
     this.addLinkListeners()
+  }
+
+  createPreloader () {
+    this.preloader = new Preloader()
   }
 
   createContent () {
@@ -52,6 +58,8 @@ class App {
       this.page = this.pages[this.template]
       this.page.create()
       this.page.show()
+
+      this.addLinkListeners()
     } else {
       console.log('Error')
     }

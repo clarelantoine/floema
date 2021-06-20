@@ -1,18 +1,17 @@
-import GSAP from 'gsap'
-
 import each from 'lodash/each'
 
-export default class Pages {
+export default class Component {
   constructor ({
-    id,
     element,
     elements
   }) {
-    this.id = id
     this.selector = element
     this.selectorChildren = {
       ...elements
     }
+
+    this.create()
+    this.addEventListeners()
   }
 
   create () {
@@ -36,21 +35,11 @@ export default class Pages {
     })
   }
 
-  show () {
-    return new Promise(resolve => {
-      GSAP.from(this.element, {
-        autoAlpha: 0,
-        onComplete: resolve
-      })
-    })
+  addEventListeners () {
+
   }
 
-  hide () {
-    return new Promise(resolve => {
-      GSAP.to(this.element, {
-        autoAlpha: 0,
-        onComplete: resolve
-      })
-    })
+  removeEventListeners () {
+
   }
 }
