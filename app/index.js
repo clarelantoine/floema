@@ -39,8 +39,8 @@ class App {
   }
 
   onPreloaded () {
-    this.preloader.destroy()
     this.page.show()
+    this.preloader.destroy()
   }
 
   async onChange (url) {
