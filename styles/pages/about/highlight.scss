@@ -8,6 +8,7 @@
 
   &:last-child {
     margin-bottom: 0;
+    padding-bottom: 10rem;
   }
 
   @include media('<phone') {
