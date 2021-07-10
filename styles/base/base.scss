@@ -47,3 +47,14 @@ button {
 .content {
   @extend %cover;
 }
+
+[data-animation="title"] {
+  span {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+  }
+}
