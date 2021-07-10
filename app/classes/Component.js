@@ -1,5 +1,4 @@
 import EventEmitter from 'events'
-import { selector } from 'gsap/gsap-core'
 
 import each from 'lodash/each'
 
