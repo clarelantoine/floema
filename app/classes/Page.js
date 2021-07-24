@@ -5,7 +5,10 @@ import Prefix from 'prefix'
 import each from 'lodash/each'
 import map from 'lodash/map'
 
+import Label from 'animations/Label'
+import Paragraph from 'animations/Paragraph'
 import Title from 'animations/Title'
+import Highlight from 'animations/Highlight'
 
 export default class Pages {
   constructor ({
@@ -17,7 +20,10 @@ export default class Pages {
     this.selector = element
     this.selectorChildren = {
       ...elements,
-      animationTitles: '[data-animation="title"]'
+      animationTitles: '[data-animation="title"]',
+      animationParagraphs: '[data-animation="paragraph"]',
+      animationLabels: '[data-animation="label"]',
+      animationHighlights: '[data-animation="highlight"]'
     }
 
     this.transformPrefix = Prefix('transform')
@@ -56,15 +62,43 @@ export default class Pages {
   }
 
   createAnimation () {
-    // console.log(this.elements.animationTitles)
+    this.animations = []
 
+    // Titles.
     this.animationTitles = map(this.elements.animationTitles, (element) => {
       return new Title({
         element
       })
     })
 
-    // console.log(this.animationTitles)
+    this.animations.push(...this.animationTitles)
+
+    // Paragraphs.
+    this.animationParagraphs = map(this.elements.animationParagraphs, (element) => {
+      return new Paragraph({
+        element
+      })
+    })
+
+    this.animations.push(...this.animationParagraphs)
+
+    // Labels.
+    this.animationLabels = map(this.elements.animationLabels, (element) => {
+      return new Label({
+        element
+      })
+    })
+
+    this.animations.push(...this.animationLabels)
+
+    // Highlights.
+    this.animationHighlights = map(this.elements.animationHighlights, (element) => {
+      return new Highlight({
+        element
+      })
+    })
+
+    this.animations.push(...this.animationHighlights)
   }
 
   show () {
@@ -110,7 +144,7 @@ export default class Pages {
     if (this.elements.wrapper) {
       this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight
     }
-    each(this.animationTitles, animation => animation.onResize())
+    each(this.animations, animation => animation.onResize())
   }
 
   update () {
