@@ -2,8 +2,8 @@
   @extend %center;
   @extend %page;
 
-  background: $color-quicksand;
-  color: $color-quater-sapnish-white;
+  // background: $color-quicksand;
+  // color: $color-quater-sapnish-white;
 
   @include media('<phone') {
     height: auto;

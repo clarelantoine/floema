@@ -56,11 +56,14 @@ export default class Navigation extends Component {
           })
 
           GSAP.to(item, {
-            autoAlpha: 0
+            autoAlpha: 0,
+            duration: 0.75
           })
         } else {
           GSAP.to(item, {
-            autoAlpha: 1
+            autoAlpha: 1,
+            duration: 0.75,
+            delay: 0.75
           })
         }
       } else {
@@ -71,11 +74,14 @@ export default class Navigation extends Component {
 
         if (linkName === 'collections') {
           GSAP.to(item, {
-            autoAlpha: 0
+            autoAlpha: 0,
+            duration: 0.75
           })
         } else {
           GSAP.to(item, {
-            autoAlpha: 1
+            autoAlpha: 1,
+            duration: 0.75,
+            delay: 0.75
           })
         }
       }
