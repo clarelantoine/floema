@@ -114,6 +114,9 @@ export default class Page {
     })
   }
 
+  /**
+   * Animations.
+   */
   show () {
     return new Promise(resolve => {
       ColorsManager.change({
@@ -139,7 +142,7 @@ export default class Page {
 
   hide () {
     return new Promise(resolve => {
-      this.removeEventListeners()
+      this.destroy()
 
       this.animationOut = GSAP.timeline()
 
@@ -150,6 +153,9 @@ export default class Page {
     })
   }
 
+  /**
+   * Events.
+   */
   onMouseWheel (event) {
     const { pixelY } = NormalizeWheel(event)
 
@@ -165,6 +171,9 @@ export default class Page {
     each(this.animations, animation => animation.onResize())
   }
 
+  /**
+   * Loop.
+   */
   update () {
     this.scroll.target = GSAP.utils.clamp(0, this.scroll.limit, this.scroll.target)
 
@@ -179,11 +188,21 @@ export default class Page {
     }
   }
 
+  /**
+   * Listeners.
+   */
   addEventlisteners () {
     window.addEventListener('mousewheel', this.onMouseWheelEvent)
   }
 
   removeEventListeners () {
     window.removeEventListener('mousewheel', this.onMouseWheelEvent)
+  }
+
+  /**
+   * Destroy.
+   */
+  destroy () {
+    this.removeEventListeners()
   }
 }

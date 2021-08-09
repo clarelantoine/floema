@@ -3,10 +3,7 @@ import EventEmitter from 'events'
 import each from 'lodash/each'
 
 export default class Component extends EventEmitter {
-  constructor ({
-    element,
-    elements
-  }) {
+  constructor ({ element, elements }) {
     super()
 
     this.selector = element
