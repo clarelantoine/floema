@@ -20,8 +20,6 @@ export default class {
   createTexture () {
     this.texture = new Texture(this.gl)
 
-    // console.log(this.element)
-
     this.image = new window.Image()
     this.image.crossOrigin = 'anonymous'
     this.image.src = this.element.getAttribute('data-src')
